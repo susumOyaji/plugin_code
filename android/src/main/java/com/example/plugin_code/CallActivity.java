@@ -47,8 +47,23 @@ public class CallActivity extends  Activity {
     public void onStart() {
         super.onStart();
 
-        answer.setOnClickListener(v -> OngoingCall.answer());
-        hangup.setOnClickListener(v -> OngoingCall.hangup());
+        //answer.setOnClickListener(v -> OngoingCall.answer());
+        answer.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                OngoingCall.answer();
+            }
+        });
+            
+
+        //hangup.setOnClickListener(v -> OngoingCall.hangup());
+        hangup.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                OngoingCall.hangup();
+            }
+        });    
+
 
         // Subscribe to state change -> call updateUi when change
         new OngoingCall();
